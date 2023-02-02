@@ -1,0 +1,20 @@
+// ** Toolkit imports
+import { configureStore } from '@reduxjs/toolkit'
+
+// ** Reducers 
+import user from 'src/store/apps/user';
+import userinfo from 'src/store/apps/userinfo';
+
+export const store = configureStore({
+  reducer: {
+    user,
+    userinfo,
+  },
+  middleware: getDefaultMiddleware =>
+    getDefaultMiddleware({
+      serializableCheck: false
+    })
+})
+
+export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof store.getState>
